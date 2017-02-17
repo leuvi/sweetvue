@@ -1,0 +1,149 @@
+$basebg = #ff5823
+$transition()
+	transition all .2s linear
+$fullpage(top = 0)
+	position absolute
+	left 0
+	top top
+	bottom 0
+	width 100%
+$center()
+	display flex
+	justify-content center
+	align-items center
+$clearinput()
+	.clearinput 
+		display none
+		position absolute
+		right 0
+		top 0
+		width 30px
+		line-height @width
+		text-align center
+		outline none
+	input:valid + .clearinput
+		display block
+$button()
+	.button
+		width 100%
+		border 0
+		background $basebg
+		color #fff
+		line-height 40px
+		font-size 16px
+		text-align center
+		border-radius 3px
+		&.disabled
+			background-color #ddd
+			color #aaa
+		span.loading
+			width 14px
+			height @width
+			display inline-block
+			margin-right 8px
+			position relative
+			&:before
+				content ''
+				position absolute
+				z-index 100
+				top 50%
+				left 50%
+				width 14px
+				height @width
+				margin-left -(@width / 2)
+				margin-top -(@height / 2)
+				pointer-events none
+				border 1px solid #eee
+				border-right-color $basebg
+				border-radius 50%
+				animation rotateCircle .8s linear infinite forwards
+	@keyframes rotateCircle
+		to
+			transform rotate(360deg)
+$loading()
+	.loading
+		position relative
+		&:before
+			content ''
+			position absolute
+			z-index 100
+			top 50%
+			left 50%
+			width 30px
+			height 30px
+			margin-left -(@width / 2)
+			margin-top -(@height / 2)
+			pointer-events none
+			border 1px solid #eee
+			border-right-color $basebg
+			border-radius 50%
+			animation rotateCircle .8s linear infinite forwards
+	@keyframes rotateCircle
+		to
+			transform rotate(360deg)
+
+$dialog()
+	.mask
+		position fixed
+		width 100%
+		height 100%
+		left 0
+		top 0
+		background-color rgba(0, 0, 0, .5)
+		z-index 99
+	.dialog
+		position fixed
+		width 100%
+		height 100%
+		left 0
+		top 0
+		z-index 100
+		display flex
+		justify-content center
+		align-items center
+		text-align center
+		.innerbox
+			width 80%
+			background-color #fff
+			border-radius 5px
+			.title
+				padding 20px 0 0
+				font-weight 600
+				font-size 16px
+			.content
+				color #666
+				padding 20px 0 25px
+				line-height 24px
+				font-size 14px
+			.buttons
+				height 44px
+				overflow hidden
+				border-top 1px solid #eee
+				display flex
+				span
+					line-height 44px
+					flex-grow 1
+					&:active
+						background-color #eee
+						border-bottom-left-radius 5px
+						border-bottom-right-radius 5px
+						text-indent .1em
+						line-height 45px
+					&.cancle
+						position relative
+						&:before
+							content ''
+							position absolute
+							right 0
+							top 0
+							width 1px
+							height 100%
+							border-right 1px solid #eee
+					&.confirm
+						color $basebg   	
+
+
+
+
+
+				
